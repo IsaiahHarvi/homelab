@@ -1,0 +1,17 @@
+{{- range .Values.services }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orion-{{ .name }}
+spec:
+  type: ClusterIP        # internal-only service
+  selector:
+    app: orion-{{ .name }}
+  ports:
+    - port: {{ .servicePort }}
+      targetPort: {{ .containerPort }}
+      protocol: TCP
+      name: http
+{{- end }}
+

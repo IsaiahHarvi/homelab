@@ -1,0 +1,35 @@
+{{- range .Values.services }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orion-{{ .name }}
+  labels:
+    app: orion-{{ .name }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: orion-{{ .name }}
+  template:
+    metadata:
+      labels:
+        app: orion-{{ .name }}
+    spec:
+      imagePullSecrets:
+        - name: {{ $.Values.imagePullSecret }}
+      containers:
+        - name: {{ .name }}
+          image: "{{ $.Values.registry }}/{{ .image }}:{{ .tag }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: {{ .containerPort }}
+          env:
+{{- range $key, $val := .env }}
+            - name: {{ $key }}
+              value: "{{ $val }}"
+{{- end }}
+{{- end }}
+
