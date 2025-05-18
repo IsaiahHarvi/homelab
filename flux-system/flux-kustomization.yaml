@@ -5,14 +5,9 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./flux-system
+  path: "./flux-system/overlay"
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  resources:
-    - gotk-components.yaml
-    - gotk-sync.yaml
-    - gotk-source.yaml
-    - helmreleases
-    - image-automation
+
