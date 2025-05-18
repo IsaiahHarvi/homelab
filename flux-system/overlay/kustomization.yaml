@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - gotk-components.yaml
   - gotk-source.yaml
+  - gotk-grafana.yaml
   - helmreleases
+  - secrets
   - image-automation
 
