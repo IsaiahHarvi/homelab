@@ -5,4 +5,4 @@ resources:
   - gotk-source.yaml
   - helmreleases
   - image-automation
-
+  - ingress-loadbalancer.yaml
