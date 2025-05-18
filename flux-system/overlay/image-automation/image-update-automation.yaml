@@ -4,16 +4,22 @@ metadata:
   name: orion
   namespace: flux-system
 spec:
-  checkout:
-    gitRepositoryRef:
-      name: flux-system
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  interval: 1m0s
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        name: flux-bot
+        email: flux-bot@harville.dev
+    push:
+      branch: main
   update:
-    path: "./flux-system"
     strategy: containers
-  commit:
-    author:
-      name: flux-bot
-      email: flux-bot@harville.dev
-  push:
-    branch: main
+    path: "./flux-system/overlay/helmreleases"
 
