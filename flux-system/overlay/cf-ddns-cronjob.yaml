@@ -31,7 +31,7 @@ spec:
                   "proxied":false
                 }
                 EOF
-                curl -sX PATCH "https://api.cloudflare.com/client/v4/zones/${CF_ZONE_ID}/dns_records/${CF_RECORD_ID}" \
+                curl -sX PUT "https://api.cloudflare.com/client/v4/zones/${CF_ZONE_ID}/dns_records/${CF_RECORD_ID}" \
                   -H "Authorization: Bearer ${CF_API_TOKEN}" \
                   -H "Content-Type: application/json" \
                   --data @/tmp/record.json \
