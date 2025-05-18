@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
   - orion.yaml
   - template.yaml
-  - ingress-nginx.yaml
 
