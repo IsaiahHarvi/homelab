@@ -13,6 +13,6 @@ spec:
   resources:
     - gotk-components.yaml
     - gotk-sync.yaml
+    - gotk-source.yaml
     - helmreleases
     - image-automation
-
