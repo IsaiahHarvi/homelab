@@ -15,16 +15,21 @@ spec:
       version: "9.0.0"
   values:
     admin:
-      existingSecret: grafana-secret
+      existingSecret: grafana-admin
     service:
       type: ClusterIP
       port: 3000
     ingress:
       enabled: true
       ingressClassName: nginx
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      tls:
+        - hosts:
+            - grafana.harville.dev
+          secretName: harvilledev
       hosts:
         - host: grafana.harville.dev
           paths:
             - path: /
               pathType: Prefix
-

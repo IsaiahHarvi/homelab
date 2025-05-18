@@ -123,6 +123,7 @@ flux get image update automation   -n flux-system
 flux reconcile source git flux-system           -n flux-system
 flux reconcile kustomization flux-system        -n flux-system
 flux reconcile helmrelease orion                -n default
+flux reconcile helmrelease grafana              -n default
 flux reconcile image update automation orion    -n flux-system
 ```
 
