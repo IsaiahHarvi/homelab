@@ -6,7 +6,4 @@ resources:
   - helmreleases
   - image-automation
   - ingress-loadbalancer.yaml
-  - cf-ddns-rbac.yaml
-  - cf-ddns-sealedsecret.yaml
-  - cf-ddns-cronjob.yaml
-
+  - patch-ingress-svc.yaml
