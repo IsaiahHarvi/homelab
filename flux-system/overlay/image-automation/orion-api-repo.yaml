@@ -6,4 +6,6 @@ metadata:
 spec:
   interval: 1m
   image: ghcr.io/isaiahharvi/orion-api
+  secretRef:
+    name: ghcr-registry
 

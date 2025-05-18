@@ -6,4 +6,5 @@
 # spec:
 #   interval: 1m
 #   image: ghcr.io/isaiahharvi/name
-#
+#   secretRef:
+#     name: ghcr-registry
