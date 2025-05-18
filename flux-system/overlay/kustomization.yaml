@@ -7,3 +7,4 @@ resources:
   - image-automation
   - ingress-loadbalancer.yaml
   - cf-ddns.yaml
+  - cf-ddns-sa.yaml
