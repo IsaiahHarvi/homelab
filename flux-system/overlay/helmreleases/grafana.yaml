@@ -4,27 +4,32 @@ metadata:
   name: grafana
   namespace: default
 spec:
-  interval: 5m
+  interval: 10m
   chart:
     spec:
       chart: grafana
-      version: 9.0.0
       sourceRef:
         kind: HelmRepository
         name: grafana
         namespace: flux-system
+      version: "9.0.0"
   values:
+    admin:
+      existingSecret: grafana-admin
+    service:
+      type: ClusterIP
+      port: 3000
     ingress:
       enabled: true
       ingressClassName: nginx
       annotations:
         kubernetes.io/ingress.class: nginx
+      tls:
+        - hosts:
+            - grafana.harville.dev
+          secretName: harvilledev
       hosts:
         - host: grafana.harville.dev
           paths:
             - path: /
               pathType: Prefix
-      tls:
-        - hosts:
-            - grafana.harville.dev
-          secretName: grafana-tls
