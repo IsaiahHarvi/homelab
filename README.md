@@ -125,3 +125,14 @@ flux reconcile kustomization flux-system        -n flux-system
 flux reconcile helmrelease orion                -n default
 flux reconcile image update automation orion    -n flux-system
 ```
+
+### Flux CF sealed secret
+```
+kubectl create secret generic cf-ddns-secrets \
+  --namespace external-dns \
+  --from-literal=CF_AUTH_EMAIL="@gmail.com" \
+  --from-literal=CF_AUTH_KEY="$CF_GLOBAL_API_KEY" \
+  --dry-run=client -o yaml \
+| kubeseal --cert=public-cert.pem --format=yaml \
+> flux-system/overlay/cf-ddns-sealedsecret.yaml
+```
