@@ -6,5 +6,13 @@ resources:
   - helmreleases
   - image-automation
   - ingress-loadbalancer.yaml
-  - cf-ddns.yaml
-  - cf-ddns-sa.yaml
+  - cf-ddns-rbac.yaml
+
+secretGenerator:
+  - name: cf-ddns-secrets
+    literals:
+      - CF_API_TOKEN=${CF_API_TOKEN}
+      - CF_ZONE_ID=${CF_ZONE_ID}
+      - CF_RECORD_ID=${CF_RECORD_ID}
+generatorOptions:
+  disableNameSuffixHash: true
