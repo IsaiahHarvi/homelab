@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  image: ghcr.io/isaiahharvi/orion-gui
+  image: ghcr.io/isaiahharvi/orion/orion-gui
   secretRef:
     name: ghcr-registry
     namespace: flux-system
