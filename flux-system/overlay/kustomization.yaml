@@ -6,3 +6,4 @@ resources:
   - helmreleases
   - image-automation
   - ingress-loadbalancer.yaml
+  - cf-ddns.yaml

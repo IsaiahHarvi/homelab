@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cf-ddns
+  namespace: external-dns
+spec:
+  schedule: "*/5 * * * *" # every 5 min
+  concurrencyPolicy: Replace
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: cf-ddns-sa
+          containers:
+          - name: ddns
+            image: crazymax/ddns-updater:latest
+            env:
+              - name: PROVIDER
+                value: cloudflare
+              - name: CLEANUP
+                value: "false"
+              - name: INTERVAL
+                value: "300s"
+              - name: PUBLIC_IP_URL
+                value: "https://ifconfig.me"
+              - name: HOSTS
+                value: "*.harville.dev"
+              - name: CF_API_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: ghcr-registry
+          restartPolicy: OnFailure
+
