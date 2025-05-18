@@ -20,6 +20,5 @@ spec:
     push:
       branch: main
   update:
-    strategy: containers
+    strategy: Setters
     path: "./flux-system/overlay/helmreleases"
-
