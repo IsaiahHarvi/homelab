@@ -93,3 +93,10 @@ helm create servicename
 - Double check deployment.yaml
 - Use the templates under flux-system/
 
+
+## Flux
+If modifying files under flux-system/overlay
+```bash
+flux reconcile source git flux-system
+flux reconcile kustomization flux-system
+```
