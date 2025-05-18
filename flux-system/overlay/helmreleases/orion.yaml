@@ -12,10 +12,4 @@ spec:
         kind: GitRepository
         name: flux-system
         namespace: flux-system
-  values:
-    services:
-      - name: gui
-        tag: latest
-      - name: api
-        tag: latest
 
