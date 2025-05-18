@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: orion
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: orion
+      sourceRef:
+        kind: GitRepository
+        name: flux-system
+        namespace: flux-system
+      path: "./orion"
+  values:
+    services:
+      - name: gui
+        tag: latest
+      - name: api
+        tag: latest
+

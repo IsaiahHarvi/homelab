@@ -1,6 +1,5 @@
 <<<<<<< HEAD
-# mono
-Homelab kubernetes service orchestration 
+Homelab kubernetes service orchestration
 =======
 **Updating Kubernetes deployments**
 
@@ -11,7 +10,7 @@ Homelab kubernetes service orchestration
 microk8s helm3 upgrade orion services/charts/service \
   --reuse-values
 
-# 2. (Optional) If you need to force-restart without a chart change:
+# 2. force-restart without a chart change:
 kubectl rollout restart deployment/name
 ````
 
@@ -36,7 +35,7 @@ kubectl rollout restart deployment/name
 
 ---
 
-## Essential kubectl Commands
+## kubectl Commands
 
 ### Inspecting Resources
 
@@ -51,13 +50,10 @@ kubectl logs deployment/pod-name
 ### Debugging & Access
 
 ```bash
-# Check rollout status
 kubectl rollout status deployment/pod-name
 
-# Port-forward into a Pod
 kubectl port-forward deployment/pod-name 5000:80
 
-# Execute a shell in a running container
 kubectl exec -it deployment/pod-name -- sh
 ```
 
@@ -74,13 +70,13 @@ kubectl scale deployment/pod-name --replicas=3
 ### Applying Raw Manifests
 
 ```bash
-kubectl apply -f path/to/your-manifest.yaml
-kubectl delete -f path/to/your-manifest.yaml
+kubectl apply -f path/to/manifest.yaml
+kubectl delete -f path/to/manifest.yaml
 ```
 
 ---
 
-## 🔐 TLS & DNS
+## TLS & DNS
 
 * **ExternalDNS**
   Watch logs to confirm DNS sync:
@@ -88,6 +84,3 @@ kubectl delete -f path/to/your-manifest.yaml
   ```bash
   kubectl -n external-dns logs -f deployment/external-dns
   ```
-
-
->>>>>>> 52a12c4 (i hope i dont regret this)
