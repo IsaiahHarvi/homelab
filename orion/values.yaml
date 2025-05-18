@@ -1,7 +1,8 @@
 registry: "ghcr.io/isaiahharvi/orion"
 imagePullSecret: ghcr-registry
+
 services:
-  - name: gui
+  gui:
     image: "orion-gui"
     tag: "latest"
     containerPort: 5173
@@ -9,7 +10,7 @@ services:
     env:
       VITE_API_URL: "https://orion.harville.dev/api"
 
-  - name: api
+  api:
     image: "orion-api"
     tag: "latest"
     containerPort: 5171
