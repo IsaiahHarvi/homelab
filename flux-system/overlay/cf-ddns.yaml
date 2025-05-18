@@ -13,7 +13,7 @@ spec:
           serviceAccountName: cf-ddns-sa
           containers:
           - name: ddns
-            image: crazymax/ddns-updater:latest
+            image: crazymax/ddns-route53:2.13.0
             env:
               - name: PROVIDER
                 value: cloudflare
