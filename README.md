@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-Homelab kubernetes service orchestration
-=======
+#Homelab kubernetes service orchestration
+
 **Updating Kubernetes deployments**
 
 
@@ -84,3 +83,13 @@ kubectl delete -f path/to/manifest.yaml
   ```bash
   kubectl -n external-dns logs -f deployment/external-dns
   ```
+
+## Adding new services
+```bash
+helm create servicename
+```
+- Edit Chart.yaml: set name, description, appVersion
+- Adjust values.yaml: set container name, ingress, registry
+- Double check deployment.yaml
+- Use the templates under flux-system/
+
