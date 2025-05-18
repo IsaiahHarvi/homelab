@@ -15,7 +15,7 @@ spec:
       version: "9.0.0"
   values:
     admin:
-      existingSecret: grafana-admin
+      existingSecret: grafana-secret
     service:
       type: ClusterIP
       port: 3000
