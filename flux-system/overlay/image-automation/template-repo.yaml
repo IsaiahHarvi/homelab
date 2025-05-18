@@ -8,4 +8,3 @@
 #   image: ghcr.io/isaiahharvi/name
 #   secretRef:
 #     name: ghcr-registry
-#     namespace: flux-system

@@ -8,4 +8,3 @@ spec:
   image: ghcr.io/isaiahharvi/orion/orion-gui
   secretRef:
     name: ghcr-registry
-    namespace: flux-system
