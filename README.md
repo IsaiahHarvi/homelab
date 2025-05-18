@@ -95,8 +95,33 @@ helm create servicename
 
 
 ## Flux
-If modifying files under flux-system/overlay
+### Modifying files under flux-system/overlay
 ```bash
 flux reconcile source git flux-system
 flux reconcile kustomization flux-system
+```
+### See what Flux has fetched & when
+```
+flux get sources git flux-system   -n flux-system
+flux get kustomizations flux-system -n flux-system
+```
+
+### Inspect your app release
+```
+flux get helmrelease orion         -n default
+```
+
+### Inspect image automation
+```
+flux get image repository          -n flux-system
+flux get image policy              -n flux-system
+flux get image update automation   -n flux-system
+```
+
+### Force Flux to re-pull Git, rebuild manifests, or bump tags
+```
+flux reconcile source git flux-system           -n flux-system
+flux reconcile kustomization flux-system        -n flux-system
+flux reconcile helmrelease orion                -n default
+flux reconcile image update automation orion    -n flux-system
 ```
