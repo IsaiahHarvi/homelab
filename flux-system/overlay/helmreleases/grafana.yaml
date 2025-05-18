@@ -24,12 +24,10 @@ spec:
       ingressClassName: nginx
       annotations:
         kubernetes.io/ingress.class: nginx
-      tls:
-        - hosts:
-            - grafana.harville.dev
-          secretName: harvilledev
       hosts:
-        - host: grafana.harville.dev
-          paths:
-            - path: /
-              pathType: Prefix
+        - grafana.harville.dev
+      path: /
+      tls:
+        - secretName: harvilledev
+          hosts:
+            - grafana.harville.dev
