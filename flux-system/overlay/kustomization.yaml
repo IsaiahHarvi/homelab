@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - gotk-components.yaml
   - gotk-source.yaml
+  - gotk-source-ingress-nginx.yaml
   - helmreleases
   - image-automation
