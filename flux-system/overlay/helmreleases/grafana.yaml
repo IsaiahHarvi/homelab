@@ -14,8 +14,8 @@ spec:
         namespace: flux-system
       version: "9.0.0"
   values:
-    adminUser: admin
-    adminPassword: Password1!
+    admin:
+      existingSecret: grafana-admin
     service:
       type: ClusterIP
       port: 3000
