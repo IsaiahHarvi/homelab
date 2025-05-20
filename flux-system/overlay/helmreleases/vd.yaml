@@ -13,4 +13,3 @@ spec:
         name: vd-charts
         namespace: flux-system
       interval: 1m
-`
