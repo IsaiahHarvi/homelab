@@ -109,6 +109,7 @@ flux get kustomizations flux-system -n flux-system
 ### Inspect your app release
 ```
 flux get helmrelease orion         -n default
+flux get helmreleases -n default
 ```
 
 ### Inspect image automation
