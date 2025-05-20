@@ -7,10 +7,10 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: vd
-      path: ./charts/vd
+      chart: ./charts/vd
       sourceRef:
         kind: GitRepository
         name: vd-charts
         namespace: flux-system
       interval: 1m
+`
