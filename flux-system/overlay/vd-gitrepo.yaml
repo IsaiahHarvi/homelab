@@ -7,4 +7,4 @@ spec:
   interval: 1m
   url: ssh://git@github.com:Verus-Datum/app.git
   ref:
-    branch: main
+    branch: 13-create-map-page
