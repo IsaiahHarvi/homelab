@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: vd-charts
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: ssh://git@github.com:Verus-Datum/app.git
+  ref:
+    branch: main

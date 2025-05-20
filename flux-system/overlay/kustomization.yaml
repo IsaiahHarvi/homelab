@@ -4,6 +4,7 @@ resources:
   - gotk-components.yaml
   - gotk-source.yaml
   - gotk-grafana.yaml
+  - vd-gitrepo.yaml
   - helmreleases/
   - image-automation/
   - secrets/

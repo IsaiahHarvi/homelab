@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - orion.yaml
   - grafana.yaml
-
+  - vd.yaml
