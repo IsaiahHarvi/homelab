@@ -102,7 +102,7 @@ flux reconcile kustomization flux-system
 ```
 ### See what Flux has fetched & when
 ```
-flux get sources git flux-system   -n flux-system
+flux get sources git -n flux-system
 flux get kustomizations flux-system -n flux-system
 ```
 

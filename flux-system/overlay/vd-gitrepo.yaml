@@ -5,6 +5,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  url: ssh://git@github.com/Verus-Datum/app.git
+  url: https://github.com/Verus-Datum/app.git
   ref:
     branch: 13-create-map-page
+  secretRef:
+    name: ghcr-registry
