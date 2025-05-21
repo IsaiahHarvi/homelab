@@ -5,6 +5,8 @@ metadata:
   namespace: default
 spec:
   interval: 5m
+  upgrade:
+    force: true
   chart:
     spec:
       chart: ./charts/vd
