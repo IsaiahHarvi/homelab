@@ -18,8 +18,9 @@ spec:
   imageRepositoryRef:
     name: vd-gui
   policy:
-    semver:
-      range: ">=0.0.0"
+    latest: {}
+    # semver:
+    #   range: ">=0.0.0"
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
@@ -41,5 +42,6 @@ spec:
   imageRepositoryRef:
     name: vd-api
   policy:
-    semver:
-      range: ">=0.0.0"
+    latest: {}
+    # semver:
+    #   range: ">=0.0.0"
