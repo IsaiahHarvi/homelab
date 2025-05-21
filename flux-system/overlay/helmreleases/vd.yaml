@@ -5,6 +5,7 @@ metadata:
   namespace: default
 spec:
   interval: 5m
+  reconcileStrategy: Revision
   chart:
     spec:
       chart: ./charts/vd
