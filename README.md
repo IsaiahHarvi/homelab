@@ -1,5 +1,12 @@
 #Homelab kubernetes service orchestration
 
+kubectl -n flux-system patch gitrepository vd-charts \
+  --type merge \
+  -p '{"spec":{"ref":{"branch":"main"}}}'
+
+flux reconcile source git vd-charts -n flux-system
+flux reconcile helmrelease vd       -n default
+
 **Updating Kubernetes deployments**
 
 

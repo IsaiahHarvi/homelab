@@ -18,10 +18,8 @@ spec:
   imageRepositoryRef:
     name: vd-gui
   policy:
-    alphabetical:
-      order: asc
-    # semver:
-    #   range: ">=0.0.0"
+    semver:
+      range: ">=0.0.0"
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
@@ -43,7 +41,5 @@ spec:
   imageRepositoryRef:
     name: vd-api
   policy:
-    alphabetical:
-      order: asc
-    # semver:
-    #   range: ">=0.0.0"
+    semver:
+      range: ">=0.0.0"
