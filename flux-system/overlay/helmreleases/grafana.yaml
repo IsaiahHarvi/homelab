@@ -31,3 +31,10 @@ spec:
         - secretName: harvilledev
           hosts:
             - grafana.harville.dev
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      size: 5Gi
+      storageClassName: standard
+      deleteClaim: false
