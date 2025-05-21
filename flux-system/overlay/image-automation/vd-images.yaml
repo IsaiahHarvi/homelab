@@ -4,7 +4,7 @@ metadata:
   name: vd-gui
   namespace: flux-system
 spec:
-  image: ghcr.io/verus-datum/vd-gui
+  image: ghcr.io/verus-datum/gui
   interval: 1m
   secretRef:
     name: ghcr-registry
@@ -27,7 +27,7 @@ metadata:
   name: vd-api
   namespace: flux-system
 spec:
-  image: ghcr.io/verus-datum/vd-api
+  image: ghcr.io/verus-datum/api
   interval: 1m
   secretRef:
     name: ghcr-registry
