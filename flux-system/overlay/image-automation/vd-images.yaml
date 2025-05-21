@@ -6,6 +6,8 @@ metadata:
 spec:
   image: ghcr.io/verus-datum/vd-gui
   interval: 1m
+  secretRef:
+    name: ghcr-registry
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
@@ -27,6 +29,8 @@ metadata:
 spec:
   image: ghcr.io/verus-datum/vd-api
   interval: 1m
+  secretRef:
+    name: ghcr-registry
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
