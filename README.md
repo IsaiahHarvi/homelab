@@ -122,6 +122,7 @@ flux get image update automation   -n flux-system
 ### Force Flux to re-pull Git, rebuild manifests, or bump tags
 ```
 flux reconcile source git flux-system           -n flux-system
+flux reconcile source git vd-charts -n flux-system
 flux reconcile kustomization flux-system        -n flux-system
 flux reconcile helmrelease orion                -n default
 flux reconcile helmrelease grafana              -n default

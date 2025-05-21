@@ -7,6 +7,6 @@ spec:
   interval: 1m
   url: https://github.com/Verus-Datum/app.git
   ref:
-    branch: 13-create-map-page
+    branch: main
   secretRef:
     name: ghcr-registry
