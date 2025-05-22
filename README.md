@@ -119,6 +119,11 @@ flux get image policy              -n flux-system
 flux get image update automation   -n flux-system
 ```
 
+### Image versions
+```
+flux get images policy vd-api         --namespace flux-system
+```
+
 ### Force Flux to re-pull Git, rebuild manifests, or bump tags
 ```
 flux reconcile source git flux-system           -n flux-system
