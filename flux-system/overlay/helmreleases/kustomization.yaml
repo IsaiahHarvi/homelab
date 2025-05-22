@@ -4,3 +4,4 @@ resources:
   - orion.yaml
   - grafana.yaml
   - vd.yaml
+  - setter.yaml
