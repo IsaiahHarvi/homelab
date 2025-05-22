@@ -1,0 +1,10 @@
+apiVersion: kpt.dev/v1
+kind: Setters
+metadata:
+  name: image-tags
+data:
+  - name: vd-image-tag
+    value: "0.0.1"
+  - name: orion-image-tag
+    value: "0.0.1"
+

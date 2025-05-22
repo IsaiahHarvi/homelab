@@ -5,6 +5,8 @@ metadata:
   namespace: default
 spec:
   interval: 5m
+  upgrade:
+    force: true
   chart:
     spec:
       chart: orion
@@ -12,4 +14,11 @@ spec:
         kind: GitRepository
         name: flux-system
         namespace: flux-system
+  values:
+    gui:
+      image:
+        tag: 0.0.1   # {"$orion-image-tag":"orion-image-tag"}
+    api:
+      image:
+        tag: 0.0.1   # {"$orion-image-tag":"orion-image-tag"}
 
