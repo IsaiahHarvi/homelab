@@ -2,11 +2,13 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: vd
-  namespace: default
+  namespace: flux-system
 spec:
   interval: 5m
   upgrade:
     force: true
+  install:
+    namespace: default
   chart:
     spec:
       chart: ./charts/vd

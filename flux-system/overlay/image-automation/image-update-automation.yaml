@@ -21,5 +21,4 @@ spec:
       branch: main
   update:
     strategy: Setters
-    path: "flux-system/overlay/helmreleases"
-
+    path: "flux-system/overlay/image-automation"
