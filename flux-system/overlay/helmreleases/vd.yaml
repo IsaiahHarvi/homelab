@@ -22,3 +22,6 @@ spec:
     api:
       image:
         tag: 0.0.3   # {"$vd-image-tag":"vd-image-tag"}
+    db:
+      image:
+        tag: 0.0.3   # {"$vd-image-tag":"vd-image-tag"}

@@ -43,3 +43,26 @@ spec:
   policy:
     semver:
       range: ">=0.0.3"
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: vd-db
+  namespace: flux-system
+spec:
+  image: ghcr.io/verus-datum/db
+  interval: 1m
+  secretRef:
+    name: ghcr-registry
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: vd-db
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: vd-db
+  policy:
+    semver:
+      range: ">=0.0.3"
