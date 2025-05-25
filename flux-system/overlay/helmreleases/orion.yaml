@@ -2,9 +2,10 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: orion
-  namespace: default
+  namespace: flux-system
 spec:
   interval: 5m
+  targetNamespace: default
   upgrade:
     force: true
   chart:
@@ -17,8 +18,7 @@ spec:
   values:
     gui:
       image:
-        tag: 0.0.1   # {"$orion-image-tag":"orion-image-tag"}
+        tag: 0.0.1 # {"$orion-image-tag":"orion-image-tag"}
     api:
       image:
-        tag: 0.0.1   # {"$orion-image-tag":"orion-image-tag"}
-
+        tag: 0.0.1 # {"$orion-image-tag":"orion-image-tag"}
