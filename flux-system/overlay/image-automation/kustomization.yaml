@@ -5,3 +5,5 @@ resources:
   - vd-images.yaml
   - orion-images.yaml
 
+generators:
+  - setters.yaml
