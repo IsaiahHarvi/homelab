@@ -20,5 +20,7 @@ spec:
     push:
       branch: main
   update:
-    strategy: Setters
-    path: "flux-system/overlay/image-automation"
+    strategy: SemVer
+    semver:
+      range: "*"
+    path: "flux-system/overlay/helmreleases"
