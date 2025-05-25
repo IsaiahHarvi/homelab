@@ -7,4 +7,4 @@ resources:
   - gotk-grafana.yaml
   - ../sources
   - helmreleases
-  - image-automation
+  # - image-automation
