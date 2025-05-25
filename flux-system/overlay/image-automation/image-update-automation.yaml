@@ -4,6 +4,7 @@ metadata:
   name: automation
   namespace: flux-system
 spec:
+  suspend: true
   sourceRef:
     kind: GitRepository
     name: flux-system
