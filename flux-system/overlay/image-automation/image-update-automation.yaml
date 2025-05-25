@@ -1,4 +1,4 @@
-apiVersion: image.toolkit.fluxcd.io/v1beta1
+apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
   name: automation
@@ -20,7 +20,5 @@ spec:
     push:
       branch: main
   update:
-    strategy: SemVer
-    semver:
-      range: "*"
-    path: "flux-system/overlay/helmreleases"
+    strategy: Setters
+    path: "flux-system/overlay/image-automation"
