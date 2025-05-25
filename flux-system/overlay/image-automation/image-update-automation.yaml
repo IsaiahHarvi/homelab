@@ -20,5 +20,5 @@ spec:
     push:
       branch: main
   update:
-    strategy: Setters
+    strategy: Latest
     path: "flux-system/overlay/image-automation"
