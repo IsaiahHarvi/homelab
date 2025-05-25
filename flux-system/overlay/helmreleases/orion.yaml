@@ -18,7 +18,7 @@ spec:
   values:
     gui:
       image:
-        tag: 0.0.1   # {"$orion-image-tag":"orion-image-tag"}
+        tag: 0.0.1 # {"$orion-image-tag":"orion-image-tag"}
     api:
       image:
-        tag: 0.0.1   # {"$orion-image-tag":"orion-image-tag"}
+        tag: 0.0.1 # {"$orion-image-tag":"orion-image-tag"}
