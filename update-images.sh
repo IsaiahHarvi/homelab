@@ -1,4 +1,4 @@
-NEW_TAG="0.0.8"
+NEW_TAG="0.0.19"
 
 kubectl set image deployment/vd-api \
   api=ghcr.io/verus-datum/api:$NEW_TAG \
@@ -11,4 +11,3 @@ kubectl set image deployment/vd-gui \
 kubectl set image deployment/vd-db \
   db=ghcr.io/verus-datum/db:$NEW_TAG \
   -n default
-
