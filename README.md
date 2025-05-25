@@ -95,6 +95,14 @@ helm create servicename
 
 
 ## Flux
+### Setting source branch
+```
+kubectl -n flux-system patch gitrepository flux-system \
+  --type merge \
+  -p '{"spec":{"ref":{"branch":"reorg"}}}'
+
+```
+
 ### Modifying files under flux-system/overlay
 ```bash
 flux reconcile source git flux-system

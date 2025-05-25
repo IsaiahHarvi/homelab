@@ -5,10 +5,9 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
+  targetNamespace: default
   upgrade:
     force: true
-  install:
-    namespace: default
   chart:
     spec:
       chart: orion
