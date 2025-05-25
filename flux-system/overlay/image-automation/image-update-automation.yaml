@@ -12,13 +12,13 @@ spec:
   git:
     checkout:
       ref:
-        branch: main
+        branch: reorg
     commit:
       author:
         name: flux-bot
         email: flux-bot@harville.dev
     push:
-      branch: main
+      branch: reorg
   update:
     strategy: Latest
-    path: "flux-system/overlay/image-automation"
+    path: "flux-system/overlay/helmreleases"
