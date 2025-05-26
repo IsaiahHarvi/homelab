@@ -1,8 +1,9 @@
-apiVersion: helm.toolkit.fluxcd.io/v2
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: orion
   namespace: flux-system
+
 spec:
   interval: 5m
   targetNamespace: default
@@ -10,7 +11,8 @@ spec:
     force: true
   chart:
     spec:
-      chart: ./apps/orion
+      chart: orion
+      path: ./apps/orion
       sourceRef:
         kind: GitRepository
         name: flux-system
