@@ -10,6 +10,7 @@ spec:
     force: true
   chart:
     spec:
+      path: apps/orion
       chart: orion
       sourceRef:
         kind: GitRepository
