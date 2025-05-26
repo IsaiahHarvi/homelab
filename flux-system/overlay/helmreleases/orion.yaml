@@ -10,7 +10,7 @@ spec:
     force: true
   chart:
     spec:
-      chart: apps/orion
+      chart: ./apps/orion
       sourceRef:
         kind: GitRepository
         name: flux-system
