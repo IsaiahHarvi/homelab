@@ -19,13 +19,13 @@ spec:
   values:
     gui:
       image:
-        tag: "0.0.3" # {"$vd-image-tag":"vd-image-tag"}
+        tag: "0.0.21" # {"$vd-image-tag":"vd-image-tag"}
       env:
         - name: VITE_API_URL
           value: "https://vd.harville.dev/api"
     api:
       image:
-        tag: "0.0.3" # {"$vd-image-tag":"vd-image-tag"}
+        tag: "0.0.21" # {"$vd-image-tag":"vd-image-tag"}
       env:
         - name: VITE_API_URL
           value: "https://vd.harville.dev/api"
@@ -33,7 +33,7 @@ spec:
           value: postgresql://admin:password@vd-db:5432/vd_db
     db:
       image:
-        tag: "0.0.3" # {"$vd-image-tag":"vd-image-tag"}
+        tag: "0.0.21" # {"$vd-image-tag":"vd-image-tag"}
       env:
         - name: POSTGRES_HOST_AUTH_METHOD
           value: "trust"
