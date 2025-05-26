@@ -1,7 +1,6 @@
-# Homelab kubernetes service orchestration
+# Homelab Kubernetes Service Orchestration
 
 **Updating Kubernetes deployments**
-
 
 ```bash
 # 1. Upgrade the Helm release to pull the new image tag
@@ -11,7 +10,7 @@ microk8s helm3 upgrade orion services/charts/service \
 
 # 2. force-restart without a chart change:
 kubectl rollout restart deployment/name
-````
+```
 
 ---
 
@@ -84,71 +83,95 @@ kubectl delete -f path/to/manifest.yaml
   kubectl -n external-dns logs -f deployment/external-dns
   ```
 
-## Adding new services
+---
+
+## Adding New Services
+
 ```bash
 helm create servicename
 ```
-- Edit Chart.yaml: set name, description, appVersion
-- Adjust values.yaml: set container name, ingress, registry
-- Double check deployment.yaml
-- Use the templates under flux-system/
 
+* Edit Chart.yaml: set name, description, appVersion
+* Adjust values.yaml: set container name, ingress, registry
+* Double-check deployment.yaml
+* Configure templates under `flux-system/`
+
+---
 
 ## Flux
-### Setting source branch
+
+### Managing Sources & Kustomizations
+
+```bash
+# Re-sync Git sources
+flux reconcile source git flux-system     -n flux-system
+flux reconcile source git vd-charts        -n flux-system
+
+# Core flux-system kustomization
+flux reconcile kustomization flux-system   -n flux-system
+
+# Overlay kustomization for apps & HelmReleases
+flux reconcile kustomization homelab-overlay -n flux-system
+
+# View status
+flux get sources git      -n flux-system
+flux get kustomizations    -n flux-system
+flux get helmreleases --all-namespaces
+kubectl get pods,svc --all-namespaces
 ```
+
+### Creating & Patching Resources
+
+```bash
+# Create a new overlay kustomization
+flux create kustomization homelab-overlay \
+  --namespace=flux-system \
+  --source=GitRepository/flux-system \
+  --path="./flux-system/overlay" \
+  --prune=true \
+  --interval=5m
+
+# Patch GitRepository branch
 kubectl -n flux-system patch gitrepository flux-system \
   --type merge \
   -p '{"spec":{"ref":{"branch":"reorg"}}}'
-
 ```
 
-### Modifying files under flux-system/overlay
+### HelmRelease & Image Automation
+
 ```bash
-flux reconcile source git flux-system
-flux reconcile kustomization flux-system
-```
-### See what Flux has fetched & when
-```
-flux get sources git -n flux-system
-flux get kustomizations flux-system -n flux-system
+flux get helmreleases            -n flux-system
+
+# HelmChart & HelmRelease troubleshooting
+flux get helmchart flux-system-vd -n flux-system
+flux get helmrelease vd          -n flux-system
+
+# Image automation
+flux get image repository         -n flux-system
+flux get image policy             -n flux-system
+flux get image update automation  -n flux-system
+flux get images policy vd-api     -n flux-system
+
+# Force Flux to re-pull or apply
+flux reconcile source git flux-system        -n flux-system
+flux reconcile source git vd-charts           -n flux-system
+flux reconcile kustomization flux-system      -n flux-system
+flux reconcile kustomization homelab-overlay  -n flux-system
+flux reconcile helmrelease orion              -n flux-system
+flux reconcile helmrelease vd                 -n flux-system
+flux reconcile helmrelease grafana            -n flux-system
+flux reconcile image update automation orion  -n flux-system
 ```
 
-### Inspect your app release
-```
-flux get helmrelease orion         -n default
-flux get helmreleases -n default
-```
+### CF & Sealed Secret Example
 
-### Inspect image automation
-```
-flux get image repository          -n flux-system
-flux get image policy              -n flux-system
-flux get image update automation   -n flux-system
-```
-
-### Image versions
-```
-flux get images policy vd-api         --namespace flux-system
-```
-
-### Force Flux to re-pull Git, rebuild manifests, or bump tags
-```
-flux reconcile source git flux-system           -n flux-system
-flux reconcile source git vd-charts -n flux-system
-flux reconcile kustomization flux-system        -n flux-system
-flux reconcile helmrelease orion                -n default
-flux reconcile helmrelease grafana              -n default
-flux reconcile image update automation orion    -n flux-system
-```
-
-### Flux CF sealed secret
-```
+```bash
 kubectl create secret generic cf-ddns-secrets \
   --namespace external-dns \
-  --from-literal=CF_AUTH_EMAIL="@gmail.com" \
+  --from-literal=CF_AUTH_EMAIL="<email>" \
   --from-literal=CF_AUTH_KEY="$CF_GLOBAL_API_KEY" \
   --dry-run=client -o yaml \
-| kubeseal --cert=public-cert.pem --format=yaml \
-> flux-system/overlay/cf-ddns-sealedsecret.yaml
+  | kubeseal --cert=public-cert.pem --format=yaml \
+  > flux-system/overlay/cf-ddns-sealedsecret.yaml
 ```
+
