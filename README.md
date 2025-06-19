@@ -143,7 +143,7 @@ kubectl -n flux-system patch gitrepository flux-system \
 flux get helmreleases            -n flux-system
 
 # HelmChart & HelmRelease troubleshooting
-flux get helmchart flux-system-vd -n flux-system
+kubectl get helmrelease orion -n flux-system -o yaml
 flux get helmrelease vd          -n flux-system
 
 # Image automation
