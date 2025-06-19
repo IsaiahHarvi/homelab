@@ -26,6 +26,7 @@ services:
 
 ingress:
   enabled: true
+  host: orion.harville.dev
   annotations:
     kubernetes.io/ingress.class: nginx
   paths:
@@ -35,4 +36,7 @@ ingress:
     - path: /api
       serviceName: api
       servicePort: 80
-
+  tls:
+    - hosts:
+      - orion.harville.dev
+      secretName: harvilledev
