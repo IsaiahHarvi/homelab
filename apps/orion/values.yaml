@@ -3,6 +3,7 @@ imagePullSecret: ghcr-registry
 
 services:
   gui:
+    name: gui
     image: "orion-gui"
     tag: "latest"
     containerPort: 5173
@@ -11,6 +12,7 @@ services:
       VITE_API_URL: "https://orion.harville.dev/api"
 
   api:
+    name: api
     image: "orion-api"
     tag: "latest"
     containerPort: 5171
