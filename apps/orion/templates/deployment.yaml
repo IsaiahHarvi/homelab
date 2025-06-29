@@ -23,7 +23,7 @@ spec:
       containers:
         - name: {{ .name }}
           image: "{{ $.Values.registry }}/{{ .image }}:{{ .tag }}"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: {{ .containerPort }}
           env:

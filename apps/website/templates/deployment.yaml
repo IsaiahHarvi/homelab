@@ -24,7 +24,7 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           image: "ghcr.io/isaiahharvi/website/site:{{ .Values.image.tag }}"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.containerPort }}
 

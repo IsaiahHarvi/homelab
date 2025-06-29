@@ -1,6 +1,6 @@
 registry: "ghcr.io/isaiahharvi/website"
 image:
-  tag: "0.0.1"
+  tag: "latest"
 
 imagePullSecret: ghcr-registry
 
