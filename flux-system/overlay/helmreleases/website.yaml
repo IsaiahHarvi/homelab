@@ -4,6 +4,7 @@ metadata:
   name: website
   namespace: flux-system
 spec:
+  releaseName: website
   targetNamespace: default
   chart:
     spec:
