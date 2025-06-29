@@ -2,13 +2,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: website-ingress
+  name: {{ .Release.Name }}
   annotations:
-{{- toYaml .Values.ingress.annotations | indent 4 }}
+    {{- toYaml .Values.ingress.annotations | nindent 4 }}
 spec:
   ingressClassName: nginx
   rules:
-    - host: {{ .Values.ingress.host }}
+    - host: isaiah.harville.dev
       http:
         paths:
           - path: /
@@ -20,7 +20,7 @@ spec:
                   number: {{ .Values.servicePort }}
   tls:
     - hosts:
-      - isaiah.harville.dev
-    secretName: harvilledev
+        - isaiah.harville.dev
+      secretName: harvilledev
 {{- end }}
 
