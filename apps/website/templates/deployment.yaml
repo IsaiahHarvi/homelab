@@ -23,7 +23,7 @@ spec:
         - name: {{ .Values.imagePullSecret }}
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "ghcr.io/isaiahharvi/website/site:{{ .Values.image.tag }}"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: {{ .Values.containerPort }}
