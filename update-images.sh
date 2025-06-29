@@ -30,11 +30,9 @@ kubectl set image deployment/vd-gui \
   gui=ghcr.io/verus-datum/gui:"${NEW_TAG}" \
   -n "${NAMESPACE}"
 
-
-# DB won't change a lot, temp until i fix PVC
 # kubectl set image deployment/vd-db \
 #   db=ghcr.io/verus-datum/db:"${NEW_TAG}" \
 #   -n "${NAMESPACE}"
-#
+
 echo "Done."
 

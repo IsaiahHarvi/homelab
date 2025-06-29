@@ -18,9 +18,10 @@ spec:
         namespace: flux-system
   values:
     fullnameOverride: orion
-    gui:
-      image:
-        tag: 0.0.1 # {"$orion-image-tag":"orion-image-tag"}
-    api:
-      image:
-        tag: 0.0.1 # {"$orion-image-tag":"orion-image-tag"}
+    services:
+      gui:
+        image:
+          tag: 0.0.1 # {"$orion-image-tag":"orion-image-tag"}
+      api:
+        image:
+          tag: 0.0.1 # {"$orion-image-tag":"orion-image-tag"}
