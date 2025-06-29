@@ -4,7 +4,7 @@ imagePullSecret: ghcr-registry
 services:
   website:
     name: website
-    image: "website"
+    image: website
     tag: "0.0.1"
     containerPort: 6000
     servicePort: 80
