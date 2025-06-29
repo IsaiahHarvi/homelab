@@ -18,6 +18,13 @@ spec:
                 name: {{ .Release.Name }}
                 port:
                   number: {{ .Values.servicePort }}
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Release.Name }}
+                port:
+                  number: {{ .Values.servicePort }}
   tls:
     - hosts:
         - isaiah.harville.dev
