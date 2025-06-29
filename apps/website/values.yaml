@@ -1,6 +1,9 @@
 registry: "ghcr.io/isaiahharvi/website"
 imagePullSecret: ghcr-registry
 
+service:
+  port: 80
+
 services:
   website:
     name: website
