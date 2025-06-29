@@ -1,16 +1,17 @@
-{{- $svc := .Values.services.website -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "website.fullname" . }}
+  name: {{ .Release.Name }}
   labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}
     app.kubernetes.io/instance: {{ .Release.Name }}
 spec:
   type: ClusterIP
   selector:
+    app.kubernetes.io/name: {{ .Chart.Name }}
     app.kubernetes.io/instance: {{ .Release.Name }}
   ports:
-    - port: {{ $svc.servicePort }}
-      targetPort: {{ $svc.containerPort }}
+    - port: {{ .Values.servicePort }}
+      targetPort: {{ .Values.containerPort }}
       protocol: TCP
 

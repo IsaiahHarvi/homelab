@@ -1,16 +1,12 @@
-registry: "ghcr.io/isaiahharvi/website"
+registry: ghcr.io/isaiahharvi/website
+image:
+  repository: website
+  tag: "0.0.1"
+
 imagePullSecret: ghcr-registry
 
-service:
-  port: 80
-
-services:
-  website:
-    name: website
-    image: website
-    tag: "0.0.1"
-    containerPort: 6000
-    servicePort: 80
+containerPort: 6000
+servicePort: 80
 
 ingress:
   enabled: true
@@ -19,6 +15,6 @@ ingress:
     kubernetes.io/ingress.class: nginx
   tls:
     - hosts:
-      - isaiah.harville.dev
+        - isaiah.harville.dev
       secretName: harvilledev
 
