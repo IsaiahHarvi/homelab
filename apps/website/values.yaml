@@ -1,4 +1,4 @@
-registry: ghcr.io/isaiahharvi/website
+registry: "ghcr.io/isaiahharvi/website"
 image:
   repository: website
   tag: "0.0.1"
