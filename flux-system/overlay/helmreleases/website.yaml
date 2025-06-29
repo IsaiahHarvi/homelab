@@ -14,9 +14,11 @@ spec:
       interval: 5m
   interval: 5m
   values:
-    image:
-      repository: ghcr.io/isaiahharvi/website
-      tag: 0.0.1
+    services:
+      website:
+        name: website
+        image: website
+        tag: 0.0.1
     ingress:
       enabled: true
       host: isaiah.harville.dev
