@@ -35,6 +35,6 @@ kubectl set image deployment/vd-gui \
 # kubectl set image deployment/vd-db \
 #   db=ghcr.io/verus-datum/db:"${NEW_TAG}" \
 #   -n "${NAMESPACE}"
-
+#
 echo "Done."
 
