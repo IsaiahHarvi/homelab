@@ -1,0 +1,28 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: website
+  namespace: default
+spec:
+  chart:
+    spec:
+      chart: ./apps/website
+      sourceRef:
+        kind: GitRepository
+        name: flux-system
+        namespace: flux-system
+      interval: 5m
+  interval: 5m
+  values:
+    image:
+      repository: ghcr.io/isaiahharvi/website
+      tag: 0.0.1
+    ingress:
+      enabled: true
+      host: isaiah.harville.dev
+      annotations:
+        kubernetes.io/ingress.class: nginx
+      tls:
+        - hosts:
+          - isaiah.harville.dev
+          secretName: harvilledev
