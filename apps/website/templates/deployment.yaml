@@ -23,7 +23,7 @@ spec:
       imagePullSecrets:
         - name: {{ .Values.imagePullSecret }}
       containers:
-        - name: {{ $svc.name }}
+        - name: {{ include "website.fulllname" . }}
           image: "{{ .Values.registry }}/{{ $svc.image }}:{{ $svc.tag }}"
           imagePullPolicy: IfNotPresent
           ports:
