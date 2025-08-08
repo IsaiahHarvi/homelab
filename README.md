@@ -105,7 +105,6 @@ helm create servicename
 ```bash
 # Re-sync Git sources
 flux reconcile source git flux-system     -n flux-system
-flux reconcile source git vd-charts        -n flux-system
 
 # Core flux-system kustomization
 flux reconcile kustomization flux-system   -n flux-system
@@ -144,21 +143,17 @@ flux get helmreleases            -n flux-system
 
 # HelmChart & HelmRelease troubleshooting
 kubectl get helmrelease orion -n flux-system -o yaml
-flux get helmrelease vd          -n flux-system
 
 # Image automation
 flux get image repository         -n flux-system
 flux get image policy             -n flux-system
 flux get image update automation  -n flux-system
-flux get images policy vd-api     -n flux-system
 
 # Force Flux to re-pull or apply
 flux reconcile source git flux-system        -n flux-system
-flux reconcile source git vd-charts           -n flux-system
 flux reconcile kustomization flux-system      -n flux-system
 flux reconcile kustomization homelab-overlay  -n flux-system
 flux reconcile helmrelease orion              -n flux-system
-flux reconcile helmrelease vd                 -n flux-system
 flux reconcile helmrelease grafana            -n flux-system
 flux reconcile image update automation orion  -n flux-system
 ```

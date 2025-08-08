@@ -14,20 +14,3 @@ spec:
           requests:
             cpu: "250m"
             memory: "256Mi"
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: vd
-spec:
-  template:
-    spec:
-      containers:
-      - name: vd
-        resources:
-          limits:
-            cpu: "300m"
-            memory: "256Mi"
-          requests:
-            cpu: "150m"
-            memory: "128Mi"
