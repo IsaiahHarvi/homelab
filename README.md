@@ -1,9 +1,20 @@
 # Homelab (k3s + Flux)
 
-
 ## Repo Layout
 
+## Commands
+Flux sync with main
 ```
+flux reconcile kustomization flux-system --with-source
+```
+
+Kustomization hangs
+```
+flux get kustomizations -A
+kubectl -n flux-system describe kustomization [name]
+```
+
+## Repo Layout
 clusters/
   homelab/
     kustomization.yaml          # entrypoint for cluster
@@ -23,25 +34,10 @@ apps/
 flux/
   image-automation/
   sources/
-.github/workflows/validate.yml
-scripts/
-  install_k3s.sh
-  teardown_microk8s.sh
-  bootstrap_flux.sh
-Makefile
 .sops.yaml
-```
 
-### Notes
-
-- **Ingress**: defaults to `ingress-nginx` (disables k3s’ bundled Traefik via install script). Switch to Traefik by removing nginx and editing infra kustomizations accordingly.
-- **Storage**: includes Longhorn as an example (optional). You can keep k3s’ `local-path` storage by skipping Longhorn.
-- **LoadBalancer**: uses MetalLB with a **placeholder** address pool. Update `values.yaml` with a block from your LAN.
-- **DNS/Certs**: cert-manager is ready; add a ClusterIssuer later (e.g., Let’s Encrypt) and optional `external-dns` if you use public DNS.
-
-## Next Steps
-
-- Replace placeholders (TODOs) in `metallb/values.yaml`, `cert-manager/`, and any Helm values.
-- Bring back your real apps: add HelmReleases under `apps/base/` or plain Kustomize overlays.
-- If your services publish to GHCR or another registry, see `flux/image-automation/` for an example ImageRepository+Policy+Update.
-- Add cluster-unique overlays under `apps/overlays/` if you have multiple clusters later.
+## TODO
+- Replace placeholders in `metallb/values.yaml`, `cert-manager/`, and any Helm values.
+- Bring back services: add HelmReleases under `apps/base/` or plain Kustomize overlays.
+- `flux/image-automation/`
+- Add cluster-unique overlays under `apps/overlays/`
