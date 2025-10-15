@@ -6,7 +6,7 @@ set -euo pipefail
 
 if ! command -v curl >/dev/null 2>&1; then sudo apt-get update && sudo apt-get install -y curl; fi
 
-export INSTALL_K3S_EXEC="--disable traefik"
+export INSTALL_K3S_EXEC="--disable traefik --write-kubeconfig-mode=644"
 curl -sfL https://get.k3s.io | sh -
 
 # kubeconfig is at /etc/rancher/k3s/k3s.yaml. For convenience:
