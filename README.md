@@ -5,7 +5,8 @@
 ## Commands
 Flux sync with main
 ```
-flux reconcile kustomization flux-system --with-source
+flux reconcile source git flux-system -n flux-system
+flux reconcile kustomization flux-system -n flux-system --with-source
 ```
 
 Kustomization hangs
