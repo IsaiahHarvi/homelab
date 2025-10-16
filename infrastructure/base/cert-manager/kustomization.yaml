@@ -4,4 +4,5 @@ resources:
   - helmrepo.yaml
   - helmrelease.yaml
   - issuer.yaml
+  - ../../../secrets/cert-manager/cloudflare-api-token.yaml
 namespace: cert-manager

@@ -8,5 +8,3 @@ resources:
   - ../../..//infrastructure/base/cert-manager
   # - ../../..//infrastructure/base/metallb
   - ../../..//infrastructure/base/longhorn
-  # Secrets
-  - ../../secrets/cert-manager/cloudflare-api-token.yaml
