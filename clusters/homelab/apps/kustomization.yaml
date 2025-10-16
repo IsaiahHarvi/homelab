@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - ../../../apps/base/echo-server
   - ../../../apps/base/orion
-  - ../../../apps/base/vd
+  # - ../../../apps/base/vd
