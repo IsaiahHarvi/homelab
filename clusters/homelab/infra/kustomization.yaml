@@ -7,5 +7,5 @@ resources:
   - ../../..//infrastructure/base/ingress-nginx
   - ../../..//infrastructure/base/cert-manager
   # - ../../..//infrastructure/base/metallb
-  - ../../..//infrastructure/base/longhorn
+  # - ../../..//infrastructure/base/longhorn
   - ./secrets/cert-manager/cloudflare-api-token.yaml
