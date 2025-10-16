@@ -3,4 +3,6 @@ kind: Kustomization
 resources:
   - helmrepo.yaml
   - helmrelease.yaml
-namespace: metallb-system
+  - ippool.yaml
+  - l2adv.yaml
+
