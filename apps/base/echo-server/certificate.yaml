@@ -9,6 +9,5 @@ spec:
     kind: ClusterIssuer
     name: letsencrypt-dns
   dnsNames:
-    - harville.dev
     - "*.harville.dev"
 
