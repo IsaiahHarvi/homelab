@@ -42,3 +42,4 @@ flux/
 - Bring back services: add HelmReleases under `apps/base/` or plain Kustomize overlays.
 - `flux/image-automation/`
 - Add cluster-unique overlays under `apps/overlays/`
+- ghcr-creds image pull secrerts consistent
