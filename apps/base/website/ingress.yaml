@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   tls:
-    - hosts: [echo.harville.dev]
+    - hosts: [isaiah.harville.dev]
       secretName: harville-wildcard-tls
   ingressClassName: nginx
   rules:
